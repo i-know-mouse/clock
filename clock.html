@@ -4,21 +4,37 @@
 <meta http-equiv="content-language" content="ja">
 <meta charset="UTF-8"/>
 
-<title>時計</title>
+<title>clock</title>
 <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 
 <style>
+
+#mainTimeSpace {
+	display:flex;
+	font-size: 100px;
+	/*temp code*/
+	width: 500px;
+	height: 300px;
+}
+#sec {
+	font-size: 50px;
+}
+
 </style>
 
 <script>
 <!--
-function setTime () {
+function setTime () {	// 時刻データのセット
 	// 時刻データの取得
 	var Time = new Date();
 	var H = Time.getHours();
 	var M = Time.getMinutes();
 	var S = Time.getSeconds();
+	
+	if (H < 10){H = String("0") + H;}
+	if (M < 10){M = String("0") + M;}
+	if (S < 10){S = String("0") + S;}
 	
 	// 取得した時刻の出力
 	document.getElementById("hour").innerHTML = H;
@@ -38,10 +54,9 @@ setInterval("setTime()", 1000);
 	<div id="mainTimeSpace">
 		<div id="hour">
 		</div>
+		：
 		<div id="min">
 		</div>
-	</div>
-	<div id="subTimeSpace">
 		<div id="sec">
 		</div>
 	</div>
